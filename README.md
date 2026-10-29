@@ -162,6 +162,15 @@ flowchart LR
 > [!tip] 导入太慢时
 > 用“同时分层导出”把每层拆成单独文件，或在命令行用 `--split`。也可以关闭 FR4 填充、提高简化容差，先做粗模型验证流程。
 
+### 从源码运行
+
+```bash
+pip install -r requirements.txt
+python ecad2step_gui.py
+```
+
+Windows 官方 Python 安装包自带 tkinter，无需额外安装。源码版同时支持下面的命令行用法。
+
 ### 命令行（源码版）
 
 打包后的 exe 只提供 GUI 和 `--selftest`；下面的命令需要在源码目录用 Python 运行：

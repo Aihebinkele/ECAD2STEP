@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<IPC-2581 revision="B" xmlns="http://webstds.ipc.org/2581">
+  <Content>
+    <FunctionMode mode="ASSEMBLY"/>
+    <DictionaryStandard units="MILLIMETER">
+      <EntryStandard id="CIRCLE_060"><Circle diameter="0.6"/></EntryStandard>
+      <EntryStandard id="RECT_120_060"><Rect x="0" y="0" width="1.2" height="0.6"/></EntryStandard>
+      <EntryStandard id="OBLONG_200_100"><Obround width="2.0" height="1.0"/></EntryStandard>
+      <EntryStandard id="DONUT_300_150"><Donut shape="ROUND" outerDiameter="3.0" innerDiameter="1.5"/></EntryStandard>
+    </DictionaryStandard>
+    <Bom>
+      <BomHeader assembly="Demo" numPins="2"/>
+      <BomItem refDes="U1" packageRef="BGA" layerRef="TOP"/>
+    </Bom>
+    <Ecad>
+      <CadHeader units="MILLIMETER"/>
+      <CadData>
+        <Layer name="TOP" layerFunction="SIGNAL" side="TOP" polarity="POSITIVE"/>
+        <Layer name="BOTTOM" layerFunction="SIGNAL" side="BOTTOM" polarity="POSITIVE"/>
+        <Stackup name="Default" overallThickness="1.6" whereMeasured="LAMINATE">
+          <StackupLayer layerOrGroupRef="TOP" thickness="0.035" sequence="1"/>
+          <StackupLayer layerOrGroupRef="CORE_1" thickness="1.53" sequence="2"/>
+          <StackupLayer layerOrGroupRef="BOTTOM" thickness="0.035" sequence="3"/>
+        </Stackup>
+        <Step name="DemoBoard">
+          <Datum x="0" y="0"/>
+          <Profile>
+            <Polygon>
+              <PolyBegin x="0" y="0"/>
+              <PolyStepSegment x="100" y="0"/>
+              <PolyStepSegment x="100" y="60"/>
+              <PolyStepSegment x="0" y="60"/>
+              <PolyStepSegment x="0" y="0"/>
+            </Polygon>
+          </Profile>
+          <Package name="BGA" type="BGA">
+            <Outline>
+              <Polygon>
+                <PolyBegin x="-5" y="-5"/>
+                <PolyStepSegment x="5" y="-5"/>
+                <PolyStepSegment x="5" y="5"/>
+                <PolyStepSegment x="-5" y="5"/>
+                <PolyStepSegment x="-5" y="-5"/>
+              </Polygon>
+            </Outline>
+          </Package>
+          <Component refDes="U1" packageRef="BGA" layerRef="TOP">
+            <Xform rotation="0"><Location x="20" y="30"/></Xform>
+          </Component>
+          <LayerFeature layerRef="TOP">
+            <Set net="GND">
+              <Features>
+                <Line startX="10" startY="10" endX="90" endY="10" width="0.25"/>
+                <Line startX="10" startY="12" endX="90" endY="12" width="0.25"/>
+                <Line startX="10" startY="14" endX="90" endY="14" width="0.25"/>
+                <Line startX="10" startY="16" endX="90" endY="16" width="0.5"/>
+                <Pad x="20" y="30">
+                  <StandardPrimitiveRef id="CIRCLE_060"/>
+                </Pad>
+                <Pad x="25" y="30">
+                  <StandardPrimitiveRef id="RECT_120_060"/>
+                </Pad>
+                <Pad x="30" y="30" rotation="45">
+                  <StandardPrimitiveRef id="OBLONG_200_100"/>
+                </Pad>
+                <Pad x="35" y="30">
+                  <StandardPrimitiveRef id="DONUT_300_150"/>
+                </Pad>
+                <Contour>
+                  <Polygon>
+                    <PolyBegin x="40" y="40"/>
+                    <PolyStepSegment x="80" y="40"/>
+                    <PolyStepSegment x="80" y="52"/>
+                    <PolyStepSegment x="40" y="52"/>
+                    <PolyStepSegment x="40" y="40"/>
+                  </Polygon>
+                  <Cutout>
+                    <Polygon>
+                      <PolyBegin x="55" y="44"/>
+                      <PolyStepSegment x="65" y="44"/>
+                      <PolyStepSegment x="65" y="48"/>
+                      <PolyStepSegment x="55" y="48"/>
+                      <PolyStepSegment x="55" y="44"/>
+                    </Polygon>
+                  </Cutout>
+                </Contour>
+              </Features>
+            </Set>
+            <Set net="N2">
+              <Pad x="60" y="20">
+                <StandardPrimitiveRef id="CIRCLE_060"/>
+              </Pad>
+              <Line startX="60" startY="20" endX="60" endY="35" width="0.3"/>
+            </Set>
+            <Set net="GND" polarity="NEGATIVE">
+              <Circle x="70" y="30" diameter="2.0"/>
+            </Set>
+            <Set net="HOLE">
+              <Hole x="50" y="30" diameter="3.2" platingStatus="PLATED"/>
+            </Set>
+          </LayerFeature>
+          <LayerFeature layerRef="BOTTOM">
+            <Set net="GND">
+              <Features>
+                <Line startX="5" startY="5" endX="95" endY="5" width="0.5"/>
+                <Pad x="80" y="50">
+                  <StandardPrimitiveRef id="CIRCLE_060"/>
+                </Pad>
+              </Features>
+            </Set>
+          </LayerFeature>
+        </Step>
+      </CadData>
+    </Ecad>
+  </Content>
+</IPC-2581>

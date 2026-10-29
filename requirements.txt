@@ -1,0 +1,8 @@
+# 运行依赖（Python 3.13，tkinter 随 Windows 官方安装包提供）
+cadquery-ocp>=7.9.3
+shapely>=2.0
+lxml>=5.0
+numpy>=1.26
+
+# 打包依赖（可选）
+# pyinstaller>=6.19

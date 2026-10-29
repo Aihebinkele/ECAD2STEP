@@ -1,0 +1,14 @@
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+
+# 打包中间产物与最终产物（构建由 Releases 提供）
+build/
+dist/
+
+# 生成的大文件
+out/*.step
+out/*.stp
+out/*.stl
+*.log
